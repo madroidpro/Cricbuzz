@@ -60,8 +60,12 @@ public class MainActivity extends AppCompatActivity {
             Schedule gson = new GsonBuilder().create().fromJson(loadJSONFromAsset(),Schedule.class);
             List<matchItemList> matchItemListsgroups=new ArrayList<>();
                     int totalMatchesSize=gson.getList().size();
-
+            //System.out.println(gson.getList().get(2).getCategory());
                     for(int i=0;i<totalMatchesSize;i++){
+                        System.out.println(gson.getList().get(i).getCategory());
+                        System.out.println(gson.getList().get(i).getList().size());
+                        //System.out.println(gname);
+
                         //Setting the header Name
                         gname=gson.getList().get(i).getCategory();
 
@@ -69,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
                         int matchListSize=gson.getList().get(i).getList().size();
 
                         //Iterating through individual match lists
-                       for(int j =0;j<matchListSize-1;j++){
+                       for(int j =0;j<matchListSize;j++){
                                gson.getList().get(i).getList().get(j).getStartDate();
                                final String iteamA,iteamB,itime,imatchNumber,imatchDesc;
                                iteamA = gson.getList().get(i).getList().get(j).getTeamAName();
@@ -101,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 int matchTotalSize=matchItemListsgroups.size();
 
             // Viewing Section Iterating to set the data to View
-               for(int k=0;k<matchTotalSize-1;k++){
+               for(int k=0;k<matchTotalSize;k++){
 
                     String matchTypeHeader=matchItemListsgroups.get(k).matchItemListName;
                     List<matchItem>itemList=matchItemListsgroups.get(k).matchItemList;
